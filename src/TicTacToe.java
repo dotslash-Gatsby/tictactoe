@@ -20,6 +20,12 @@ public class TicTacToe {
         is = input;
     }
 
+    public TicTacToe(InputStream input, char[][] testBoard) {
+
+        board = testBoard;
+        is = input;
+    }
+
     public void playGame() {
 
         boolean win = false;
@@ -105,9 +111,12 @@ public class TicTacToe {
             System.out.println(player + "where would you like to move?");
 
             moves = input.nextLine();
+            System.out.print("Moves: " + moves + "\n");
             positions = moves.split(" ");
             moveX = Integer.parseInt(positions[0]);
+            System.out.print("MoveX: " + moveX+ "\n");
             moveY = Integer.parseInt(positions[1]);
+            System.out.print("MoveY: " + moveY+ "\n");
             
 
             if (moveX > 2 || moveY > 2) {
@@ -177,24 +186,24 @@ public class TicTacToe {
         // check columns
         // check column 1
         if (board[0][0] == piece) {
-            if (board[0][1] == piece) {
-                if (board[0][2] == piece) {
+            if (board[1][0] == piece) {
+                if (board[2][0] == piece) {
                     return true;
                 } // if
             } // if
         } // if
 
         // check column 2
-        if (board[1][0] == piece) {
+        if (board[0][1] == piece) {
             if (board[1][1] == piece) {
-                if (board[1][2] == piece) {
+                if (board[2][1] == piece) {
                     return true;
                 } // if
             } // if
         } // if
-          // check column 2
-        if (board[2][0] == piece) {
-            if (board[2][1] == piece) {
+          // check column 3
+        if (board[0][2] == piece) {
+            if (board[1][2] == piece) {
                 if (board[2][2] == piece) {
                     return true;
                 } // if
